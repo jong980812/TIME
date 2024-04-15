@@ -54,7 +54,12 @@ def parse_args(default=False):
     )
     if len(sys.argv) == 1:
         parser.print_help()
-    
+    parser.add_argument('--world_size', default=1, type=int,
+                        help='number of distributed processes')
+    parser.add_argument('--local-rank', default=-1, type=int)
+    parser.add_argument('--dist_on_itp', action='store_true')
+    parser.add_argument('--dist_url', default='env://',
+                        help='url used to set up distributed training')
     return parser.parse_args()
 
 def load_config(args):
@@ -99,7 +104,7 @@ def main():
         os.environ["CUDA_VISIBLE_DEVICES" ]= args.gpu_ids
     
     if args.num_shards > 1:
-       args.output_dir = str(args.job_dir)
+       args.output_dir = str('/data/jongseo/project/cil/temporal-selfsupervision/main.py')
     cfg = load_config(args)
 
     if cfg.ERM_TRAIN.ENABLE:

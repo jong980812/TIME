@@ -104,7 +104,7 @@ class Ssv2_webm(Dataset):
             self._video_names.append(video_name)
             self._labels.append(label)
 
-        self._path_to_videos = [osp.join(videos_dir, f"{name}.webm") for name in self._video_names]
+        self._path_to_videos = [osp.join(videos_dir, f"{name}.mp4") for name in self._video_names]
 
         # Extend self when self._num_clips > 1 (during testing).
         self._labels = list(

@@ -1,7 +1,7 @@
 ERM_TRAIN:
   ENABLE: True
   DATASET: Ssv2_webm
-  BATCH_SIZE: 64
+  BATCH_SIZE: 14
   EVAL_PERIOD: 1
   CHECKPOINT_PERIOD: 1
   AUTO_RESUME: True
@@ -9,10 +9,10 @@ ERM_TRAIN:
   FINETUNE: False
   NUM_ITERS: 1
 DATA:
-  PATH_TO_ANNOTATION: '/data/somethingv2/annotation'
-  PATH_TO_JPEG: '/data/somethingv2/raw_data'
-  TRAIN_SPLIT_DIR: 'train_test'
-  VAL_SPLIT_DIR: 'train_test'
+  PATH_TO_ANNOTATION: '/data/jongseo/project/cil/temporal-selfsupervision/labels'
+  PATH_TO_JPEG: '/local_datasets/something-something-v2/videos'
+  TRAIN_SPLIT_DIR: ''
+  VAL_SPLIT_DIR: ''
   MEAN: [ 0.5, 0.5, 0.5 ]
   STD: [ 0.5, 0.5, 0.5 ]
   USE_RAND_AUGMENT: True
@@ -42,8 +42,8 @@ DATA_LOADER:
   PIN_MEMORY: True
 TENSORBOARD:
   ENABLE: True
-NUM_GPUS: 8
-LOG_PERIOD: 50
+NUM_GPUS: 2
+LOG_PERIOD: 10
 RNG_SEED: 0
 OUTPUT_DIR: ./experiments/timesformer_8frame
 ERM_TEST:

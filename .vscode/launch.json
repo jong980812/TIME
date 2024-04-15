@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+         {
+          "name": "cil",
+          "type": "debugpy",
+          "env": {"PYDEVD_WARN_SLOW_RESOLVE_TIMEOUT": "2"},
+          "request": "launch",
+          "console": "integratedTerminal",
+          "module": "torch.distributed.launch",
+          "justMyCode": true,
+          "args" : [
+            "--nproc_per_node", "2",
+            "--master_port", "1442",
+            "/data/jongseo/project/cil/temporal-selfsupervision/main.py",
+            "--cfg", "/data/jongseo/project/cil/temporal-selfsupervision/configs/timesformer/ssv2/train.yaml",
+            "--gpu_ids","0,1"
+
+
+
+          ]
+     },
+  
+
+    ]
+    // "--composition",
+}
+
+
+
+
+
+
+
+

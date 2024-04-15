@@ -46,11 +46,12 @@ def run(
 
     try:
         torch.distributed.init_process_group(
-            backend=backend,
-            init_method=init_method,
+            backend="nccl",
+            init_method='env://',
             world_size=world_size,
             rank=rank,
         )
+
     except Exception as e:
         raise e
 
